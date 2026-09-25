@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>跨标签页共享计数器</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+    <h1>共享计数器</h1>
+    <div id="value" class="value">0</div>
+    <div id="target" class="target">目标：未设置</div>
+    <div class="progress"><div id="progress-fill" class="progress-fill"></div></div>
+
+    <div class="row">
+      <button id="dec" class="btn">−1</button>
+      <button id="inc" class="btn primary">+1</button>
+      <button id="reset" class="btn danger">重置</button>
+    </div>
+
+    <div class="row">
+      <input id="target-input" type="number" placeholder="目标值" />
+      <button id="set-target" class="btn">设置目标值</button>
+    </div>
+
+    <div class="row">
+      <button id="toggle-online" class="btn">模拟离线</button>
+    </div>
+
+    <footer class="meta">
+      <span>状态：<span id="status" class="online">在线</span></span>
+      <span>标签页：<code id="tab-id"></code></span>
+      <span>已同步操作：<span id="op-count">0</span> 条</span>
+    </footer>
+    <p class="hint">多开几个标签页试试：计数实时同步，刷新/关闭不丢，离线操作恢复后自动合并。</p>
+  </main>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
