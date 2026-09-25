@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>跨标签页计数器验收</title>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell narrow">
+      <section class="counter-card">
+        <p class="eyebrow">Acceptance</p>
+        <h1>多标签页自动验收</h1>
+        <p class="muted">
+          会打开 4 个独立窗口模拟 4 个标签页。请允许浏览器弹出窗口，并保持这些窗口打开直到测试完成。
+        </p>
+        <button id="run-tests" type="button" class="primary wide">运行验收</button>
+        <p id="stress-status" class="status-pill" aria-live="polite">未运行</p>
+        <pre id="stress-log" class="test-log" aria-live="polite"></pre>
+      </section>
+    </main>
+
+    <script type="module" src="src/stress.js"></script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>跨标签页共享计数器</title>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="counter-card" aria-labelledby="page-title">
+        <p class="eyebrow">BroadcastChannel + IndexedDB</p>
+        <h1 id="page-title">跨标签页共享计数器</h1>
+
+        <div class="status-row" aria-live="polite">
+          <span id="connection-status" class="status-pill">正在同步…</span>
+          <span id="log-status" class="muted">已持久化 0 个操作</span>
+          <span id="agent-badge" class="agent-badge" hidden>验收子窗口</span>
+        </div>
+
+        <output id="counter-value" class="counter-value" aria-label="当前计数">--</output>
+
+        <div class="button-grid" aria-label="计数器操作">
+          <button type="button" class="primary" data-action="decrement">−1</button>
+          <button type="button" class="primary" data-action="increment">+1</button>
+          <button type="button" class="secondary" data-action="reset">重置</button>
+        </div>
+
+        <form id="target-form" class="target-form">
+          <label for="target-input">目标值</label>
+          <div class="target-controls">
+            <input id="target-input" name="target" type="number" step="1" inputmode="numeric" required />
+            <button type="submit" class="secondary">设置目标值</button>
+          </div>
+        </form>
+
+        <p id="error-message" class="error-message" role="alert" aria-live="assertive"></p>
+      </section>
+
+      <p class="help-text">
+        在多个标签页打开本页面。操作先提交到 IndexedDB，再通过 BroadcastChannel 通知其他标签页。
+      </p>
+    </main>
+
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>
